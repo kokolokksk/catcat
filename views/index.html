@@ -1,0 +1,56 @@
+<!-- file: ./views/hello.html -->
+<html>
+<head>
+    <title>SayariMio is Sayarii</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+    <div   id="app">
+        <v-app >
+            <v-main class="teal lighten-4">
+              <v-container > 
+    <v-banner max-width=600 Elevation="5" max-counter=8 color="teal lighten-5">
+      <span class="teal--text">{{.message}}</span>
+       <v-btn @click="goQuery" class="ma-2" outlined  color="teal"  fab color="indigo">
+           Go
+        </v-btn>
+        <v-btn @click="goFileUpload" class="ma-2" outlined  color="teal"  fab color="indigo">
+          图床
+       </v-btn>
+    </v-banner>
+
+    <v-banner max-width=600 Elevation="5" max-counter=8 color="teal lighten-5">
+      <span class="teal--text">访问次数:{{.times}}</span>
+        </v-btn>
+  </v-banner>
+    </v-container>
+    </v-main>
+    </v-app>
+    </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data:{
+
+      },
+      methods: {
+        goQuery(event){
+            window.location.href="/querySong"
+        },
+        goFileUpload(event){
+            window.location.href="/upload"
+        }
+    }
+    }) 
+   
+  </script>
+</body>
+</html>
