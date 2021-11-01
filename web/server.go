@@ -1,4 +1,4 @@
-package main
+package Web
 
 import (
 	"bufio"
@@ -40,7 +40,7 @@ type Config struct {
 func getTimes() int64 {
 	var times int64 = 1
 	//add times
-	db, err := gorm.Open("sqlite3", "config.db")
+	db, err := gorm.Open("sqlite3", "../config.db")
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -60,12 +60,13 @@ func getTimes() int64 {
 	return times
 }
 
-func main() {
+
+func Start() {
 	initStart()
 	logger, _ := zap.NewProduction()
 	defer logger.Sync()
 	app := iris.New()
-	app.RegisterView(iris.HTML("./views", ".html"))
+	app.RegisterView(iris.HTML("../views", ".html"))
 	//app.Use(myMiddleware)
 	app.Get("/", func(ctx iris.Context) {
 		logger.Info("router info",
@@ -78,6 +79,11 @@ func main() {
 		var times int64 = getTimes()
 		ctx.ViewData("times", times)
 		ctx.View("index.html")
+	
+	
+	
+	
+	
 	})
 
 	app.Handle("GET", "/ping", func(ctx iris.Context) {
@@ -87,7 +93,7 @@ func main() {
 		)
 		ctx.JSON(iris.Map{"message": "pong"})
 	})
-	app.HandleDir("/static", "./views")
+	app.HandleDir("/static", "../views")
 	// Serve the upload_form.html to the client.
 	app.Get("/upload", func(ctx iris.Context) {
 		// create a token (optionally).
@@ -125,7 +131,7 @@ func main() {
 
 		// Create a file with the same name
 		// assuming that you have a folder named 'uploads'
-		out, err := os.OpenFile("./views/upload/"+fname,
+		out, err := os.OpenFile("../views/upload/"+fname,
 			os.O_WRONLY|os.O_CREATE, 0666)
 		if err != nil {
 			ctx.StatusCode(iris.StatusInternalServerError)
@@ -200,7 +206,7 @@ type Song struct {
 }
 
 func getSong(t string) Song {
-	db, err := gorm.Open("sqlite3", "song.db")
+	db, err := gorm.Open("sqlite3", "../song.db")
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -213,7 +219,7 @@ func getSong(t string) Song {
 	return ss
 }
 func querySong(t string) []Song {
-	db, err := gorm.Open("sqlite3", "song.db")
+	db, err := gorm.Open("sqlite3", "../song.db")
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -225,7 +231,7 @@ func querySong(t string) []Song {
 	return ss
 }
 func addSong(s Song) {
-	db, err := gorm.Open("sqlite3", "song.db")
+	db, err := gorm.Open("sqlite3", "../song.db")
 	if err != nil {
 		panic("failed to connect database")
 	}

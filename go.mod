@@ -3,6 +3,12 @@ module loli.monster/catcat
 go 1.17
 
 require (
+	github.com/jinzhu/gorm v1.9.16
+	github.com/kataras/iris/v12 v12.1.8
+	go.uber.org/zap v1.19.1
+)
+
+require (
 	9fans.net/go v0.0.0-20181112161441-237454027057 // indirect
 	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/CloudyKit/fastprinter v0.0.0-20200109182630-33d98a066a53 // indirect
@@ -15,11 +21,9 @@ require (
 	github.com/iris-contrib/jade v1.1.3 // indirect
 	github.com/iris-contrib/pongo2 v0.0.1 // indirect
 	github.com/iris-contrib/schema v0.0.1 // indirect
-	github.com/jinzhu/gorm v1.9.16 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.9 // indirect
 	github.com/kataras/golog v0.0.10 // indirect
-	github.com/kataras/iris/v12 v12.1.8 // indirect
 	github.com/kataras/pio v0.0.2 // indirect
 	github.com/kataras/sitemap v0.0.5 // indirect
 	github.com/klauspost/compress v1.9.7 // indirect
@@ -38,7 +42,6 @@ require (
 	github.com/yuin/goldmark v1.4.0 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
-	go.uber.org/zap v1.19.1 // indirect
 	golang.org/x/crypto v0.0.0-20191227163750-53104e6ec876 // indirect
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
 	golang.org/x/mod v0.4.2 // indirect
