@@ -1,5 +1,6 @@
 # catcat
 喵喵酱出发！
+《改用[nodejs](github.com/kokolokksk/catcat-js)实现》
 # 技术选型
 - golang
 
